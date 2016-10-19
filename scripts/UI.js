@@ -163,16 +163,18 @@ var spinner = new Spinner(opts).spin(target);
 
 }
 UI.prototype.buildCategories= function(categories){
-    cats=["Animal & Animal Products","Vegetable Products","Foodstuffs","Mineral Products","Chemicals & Allied Industries","Plastics & Rubbers","Leathers and Furs","Wood & Wood Products","Textiles","Footwear & Headgear","Stone & Glass","Metals","Machinery & Electrical","Transportation","Miscellaneous","Service"];
+    // cats=["Animal & Animal Products","Vegetable Products","Foodstuffs","Mineral Products","Chemicals & Allied Industries","Plastics & Rubbers","Leathers and Furs","Wood & Wood Products","Textiles","Footwear & Headgear","Stone & Glass","Metals","Machinery & Electrical","Transportation","Miscellaneous","Service"];
+    cats=["Condensate","Oil","Gas","NGL"];
     var catHTML="<table><tr>";
     $.each(categories,function(i,val){
-            color=new THREE.Color(i);
-            rgba="rgba("+Math.round(color.r*295)+","+Math.round(color.g*295)+","+Math.round(color.b*295)+",0.8)";
-            //catHTML+="<td class='categoryButton' style='-webkit-box-shadow: inset 0px -12px 15px -2px  "+rgba+"; -moz-box-shadow: inset 0px -12px 15px -2px  "+rgba+"; box-shadow: inset 0px -12px 15px -2px  "+rgba+";'><div id=cat"+val.id+" class='chooseCategory'>"+cats[val.id]+" </div></td>";
-            catHTML+="<td class='categoryButton' style='border-top:8px solid "+rgba+" ;'><div id=cat"+val.id+" class='chooseCategory'>"+cats[val.id]+" </div></td>";            
-        });
-        $("#categories").html(catHTML+"</tr></table>");
-};
+        color=new THREE.Color(i);
+        rgba="rgba("+Math.round(color.r*295)+","+Math.round(color.g*295)+","+Math.round(color.b*295)+",0.8)";
+        //catHTML+="<td class='categoryButton' style='-webkit-box-shadow: inset 0px -12px 15px -2px  "+rgba+"; -moz-box-shadow: inset 0px -12px 15px -2px  "+rgba+"; box-shadow: inset 0px -12px 15px -2px  "+rgba+";'><div id=cat"+val.id+" class='chooseCategory'>"+cats[val.id]+" </div></td>";
+        catHTML+="<td class='categoryButton' style='border-top:8px solid "+rgba+" ;'><div id=cat"+val.id+" class='chooseCategory'>"+cats[val.id]+" </div></td>";            
+    });
+    $("#categories").html(catHTML+"</tr></table>");
+          
+};   
 UI.prototype.updateLoader = function(add){
     this.loading+=add;
     percentage=this.loading;

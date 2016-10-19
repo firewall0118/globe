@@ -167,7 +167,8 @@ span{
     vertical-align: bottom;
     padding: 3px;
     padding: 0;
-    width:6.5%;
+    /*width:6.5%;*/
+    width:4%;
     text-align: center;
     z-index: 99;
     opacity: 1;
